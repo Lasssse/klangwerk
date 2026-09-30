@@ -191,7 +191,8 @@ function stopTone(){
   toneBtn.textContent = 'Referenzton starten';
   sec = 0; stamp();                                   /* die Uhr läuft mit dem Ton zurück */
 }
-toneBtn.addEventListener('click', async () => {
+/* Die Prüfung deckt die Rechtstexte ab, wo es weder Referenzton noch Formular gibt. */
+if (toneBtn) toneBtn.addEventListener('click', async () => {
   ac = ac || new (window.AudioContext || window.webkitAudioContext)();
   if (ac.state === 'suspended') await ac.resume();
   if (playing){ stopTone(); return; }
@@ -215,12 +216,12 @@ const validators = {
   fTopic: v => v !== '',
   fMsg: v => v.trim().length > 0
 };
-form.querySelectorAll('.fin').forEach(f => f.addEventListener('input', () => {
+if (form) form.querySelectorAll('.fin').forEach(f => f.addEventListener('input', () => {
   f.closest('.field').classList.remove('err');
   f.removeAttribute('aria-invalid');
 }));
 let noteTimer;
-form.addEventListener('submit', e => {
+if (form) form.addEventListener('submit', e => {
   e.preventDefault();
   let firstBad = null;
   Object.keys(validators).forEach(id => {

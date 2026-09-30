@@ -8,10 +8,18 @@
 <meta name="theme-color" content="#F6F7F2">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
+<!-- Seitenadresse. Steht an drei Stellen im Dokument: canonical, og:url und die
+     JSON-LD weiter unten. Mit der eigenen Domain klangwerk.audio überall ersetzen. -->
+<link rel="canonical" href="https://lasssse.github.io/klangwerk/">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:title" content="KLANGWERK — Lautsprecher, Kopfhörer, Verstärker">
 <meta property="og:description" content="Drei Produktlinien, gefertigt in Hamburg. Messprotokolle, Fertigungstoleranz und Ersatzteilversorgung über 25 Jahre.">
-<meta property="og:url" content="https://klangwerk.audio/">
-<meta property="og:image" content="https://picsum.photos/seed/klangwerk-monolith-front/1200/630">
+<meta property="og:url" content="https://lasssse.github.io/klangwerk/">
+<meta property="og:site_name" content="Klangwerk">
+<meta property="og:image" content="https://lasssse.github.io/klangwerk/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Klangwerk: grünes Quadrat mit K, umgeben von der Partikelwolke der Startseite">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%23759243'/%3E%3Ctext%20x='16'%20y='24'%20font-family='Helvetica,Arial,sans-serif'%20font-size='21'%20font-weight='700'%20fill='%23F6F7F2'%20text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +27,88 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <noscript><style>.tone,.card-plus{display:none}.card-info{position:static;opacity:1;visibility:visible}.menu-btn,.menu-pop{display:none}.nav{display:flex;flex-wrap:wrap;gap:6px 20px}.head-in{height:auto;min-height:60px;padding:10px 22px}.hero-cloud{display:none}.hero-left{grid-column:1/-1}section{scroll-margin-top:110px}</style></noscript>
+<!-- Strukturierte Daten für Suchmaschinen: Organisation, Website und die drei Geräte
+     mit Preisen. Alle Werte müssen mit der sichtbaren Seite übereinstimmen, sonst
+     droht eine Abmahnung. Preise in Euro ohne Punkt, Drei-/Zweistellig. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lasssse.github.io/klangwerk/#org",
+      "name": "Klangwerk GmbH",
+      "url": "https://lasssse.github.io/klangwerk/",
+      "description": "Entwicklung und Fertigung von Lautsprechern, Kopfhörern und Verstärkern in Hamburg seit 1979.",
+      "email": "hallo@klangwerk.audio",
+      "telephone": "+49 40 12 34 567",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bahrenfelder Straße 118",
+        "postalCode": "22765",
+        "addressLocality": "Hamburg",
+        "addressCountry": "DE"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lasssse.github.io/klangwerk/#website",
+      "url": "https://lasssse.github.io/klangwerk/",
+      "name": "Klangwerk",
+      "inLanguage": "de-DE",
+      "publisher": { "@id": "https://lasssse.github.io/klangwerk/#org" }
+    },
+    {
+      "@type": "Product",
+      "name": "Monolith I",
+      "description": "Dreiwege-Referenzlautsprecher mit geschlossenem Gehäuse aus Esche und geölter Walnuss. Preis pro Paar.",
+      "image": "https://picsum.photos/seed/klangwerk-monolith-speaker/900/1125",
+      "brand": { "@type": "Brand", "name": "Klangwerk" },
+      "offers": {
+        "@type": "Offer",
+        "price": "3900",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://lasssse.github.io/klangwerk/#lineup"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Halo",
+      "description": "Offener Planar-Kopfhörer.",
+      "image": "https://picsum.photos/seed/klangwerk-halo-headphones/900/1125",
+      "brand": { "@type": "Brand", "name": "Klangwerk" },
+      "offers": {
+        "@type": "Offer",
+        "price": "890",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://lasssse.github.io/klangwerk/#lineup"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Watt",
+      "description": "Class-A-Vollverstärker.",
+      "image": "https://picsum.photos/seed/klangwerk-watt-amplifier/900/1125",
+      "brand": { "@type": "Brand", "name": "Klangwerk" },
+      "offers": {
+        "@type": "Offer",
+        "price": "1650",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://lasssse.github.io/klangwerk/#lineup"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Reichweitenmessung: Plausible, ohne Cookies und ohne personenbezogene Daten,
+     daher kein Einwilligungsbanner nötig. Domain unten eintragen und die Zeile
+     aktivieren. Anleitung: https://plausible.io/docs/script-extended.html -->
+<!-- <script defer data-domain="klangwerk.audio" src="https://plausible.io/js/script.js"></script> -->
+
 <script src="script.js" defer></script>
 </head>
 
@@ -310,7 +400,7 @@
       <div><h3>Weitere Kanäle</h3><a href="https://www.instagram.com/klangwerk.audio/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.youtube.com/@klangwerk" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://www.discogs.com/seller/klangwerk/profile" target="_blank" rel="noopener noreferrer">Discogs</a></div>
       <div><h3>Besuch</h3><ul><li>Bahrenfelder Straße 118</li><li>22765 Hamburg</li><li>Di bis Sa, 11 bis 19 Uhr</li></ul></div>
     </div>
-    <div class="legal"><span>© 2026 Klangwerk GmbH. Alle Rechte vorbehalten.</span><span>Entwicklung und Fertigung in Hamburg</span></div>
+    <div class="legal"><span>© 2026 Klangwerk GmbH. Alle Rechte vorbehalten.</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span><span>Entwicklung und Fertigung in Hamburg</span></div>
   </div>
 </footer>
 

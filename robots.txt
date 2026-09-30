@@ -1,0 +1,5 @@
+# Alle Inhalte sind für Suchmaschinen freigegeben.
+User-agent: *
+Allow: /
+
+Sitemap: https://lasssse.github.io/klangwerk/sitemap.xml

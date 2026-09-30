@@ -252,6 +252,25 @@ textarea.fin{min-height:130px;resize:vertical}
 .foot-cols a,.foot-cols li{display:block;font-size:14px;font-weight:500;padding:5px 0}
 .foot-cols a:hover{color:var(--green-dd);text-decoration:underline;text-underline-offset:4px}
 .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.legal a{border-bottom:1px solid currentColor;transition:color .2s ease}
+.legal a:hover{color:var(--green-dd)}
+
+/* ---------- Rechtstexte ---------- */
+/* Angabenpaare wie im dunklen Kontaktpanel, nur auf hellem Grund. Bewusst unter
+   .legaltext gekapselt, damit keine allgemeine h3-Regel die Karten und Prinzipien
+   auf der Startseite überschreibt. */
+.legaltext{margin-top:34px;max-width:72ch;color:var(--muted)}
+.legaltext h3{font-family:var(--disp);font-size:19px;font-weight:600;letter-spacing:.01em;color:var(--ink);margin-top:46px;margin-bottom:14px}
+.legaltext p{margin-bottom:14px}
+.legaltext a{border-bottom:1.5px solid var(--green)}
+.legaltext a:hover{color:var(--green-dd);border-color:var(--green-dd)}
+.facts{margin-top:20px;border-top:1.5px solid var(--line)}
+.facts div{display:flex;justify-content:space-between;gap:24px;padding:13px 0;border-bottom:1px solid var(--line)}
+.facts dt{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-top:3px}
+.facts dd{font-weight:500;text-align:right;color:var(--ink)}
+/* Offene Felder in den Rechtstexten sind blau markiert, damit sie beim Lesen auffallen. */
+.todo{color:var(--blue-dd);font-weight:600}
+@media(max-width:640px){.facts div{flex-direction:column;gap:4px}.facts dd{text-align:left}}
 @media(max-width:820px){.foot-cols{grid-template-columns:1fr;gap:26px}}
 
 @media (prefers-reduced-motion: reduce){
