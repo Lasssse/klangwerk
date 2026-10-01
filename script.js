@@ -82,8 +82,8 @@ if (cloud){
   const calm = matchMedia('(prefers-reduced-motion: reduce)');
   const vars = getComputedStyle(document.documentElement);
   const rgb = v => { const n = parseInt(v.trim().slice(1), 16); return (n >> 16 & 255) + ',' + (n >> 8 & 255) + ',' + (n & 255); };
-  const DOT = 'rgba(' + rgb(vars.getPropertyValue('--green-d')) + ',.85)';
-  const LINK = 'rgba(' + rgb(vars.getPropertyValue('--green-dd')) + ',.16)';
+  const DOT = 'rgba(' + rgb(vars.getPropertyValue('--accent-d')) + ',.85)';
+  const LINK = 'rgba(' + rgb(vars.getPropertyValue('--accent-dd')) + ',.16)';
   const REACH = 110, REACH2 = REACH * REACH, NEAR2 = 34 * 34;
   let W = 0, H = 0, ps = [], mx = -1e4, my = -1e4, raf = 0, visible = false, t = 0;
 
@@ -177,6 +177,32 @@ if (cloud){
     else addEventListener('resize', () => { if (size()) paint(); }, { passive: true });
     if (calm.matches) paint();       /* reduzierter Wunsch: ein ruhiges Standbild */
     maybe();
+  }
+}
+
+/* ---------- Lautsprecher im Hero: Drehung nach dem Scrollfortschritt ----------
+   Kein Scroll-Hacking: nichts wird abgefangen oder ersetzt, es wird nur die
+   Variable --spin gesetzt, die die Transformierung in styles.css steuert. Browser
+   mit scroll() als Zeitachse erledigen das in CSS, dann bleibt dieser Block stumm.
+   Bei reduzierter Bewegung wird nichts verändert, die Ruheansicht aus CSS gilt. */
+const speaker = document.getElementById('speaker');
+if (speaker){
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  const nativeScroll = window.CSS && CSS.supports && CSS.supports('animation-timeline', 'scroll()');
+  if (!nativeScroll && !still.matches){
+    let queued = false;
+    const spin = () => {
+      if (queued) return;            /* höchstens eine Berechnung je Bild */
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        const p = Math.min(1, Math.max(0, scrollY / Math.max(1, innerHeight * .9)));
+        speaker.style.setProperty('--spin', (-20 + p * 68).toFixed(2) + 'deg');
+      });
+    };
+    addEventListener('scroll', spin, { passive: true });
+    addEventListener('resize', spin);
+    spin();
   }
 }
 
